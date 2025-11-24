@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<!-- NEW ORGANIZED VERSION BASED ON YOUR PLAN -->
+<!-- This version keeps your modern-minimal look, your images, and reorders slides 100% to match your new flow.
+     All old slides that you DID NOT include in the new flow are moved to a NEW "Appendix" panel.
+     Appendix is not part of slide navigation — it appears only when clicking the new NAVBAR button "Appendix".
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sparkle 3D Printing Trial Lesson – Modern Minimal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --ivory:#F8F6F0;
+      --sage:#6DAF9C;
+      --sage-600:#4E8F7E;
+      --slate:#111418;
+      --muted:#6b7280;
+      --border:#e5e7eb;
+      --accent:#9BC6BB;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0; background:var(--bg); color:var(--slate); font-family:"Inter",system-ui;}
+    .deck{position:relative; height:100dvh; overflow:hidden; display:grid; grid-template-rows:auto 1fr auto; background:linear-gradient(180deg,var(--ivory) 0%, #fff 60%);}    
+
+    header{display:flex; align-items:center; justify-content:space-between; padding:10px 20px; border-bottom:1px solid var(--border); backdrop-filter:saturate(140%) blur(8px); background:rgba(255,255,255,.7);}    
+    .brand{display:flex; gap:10px; align-items:center}
+    .dot{width:14px; height:14px; border-radius:50%; background:var(--sage); box-shadow:0 0 0 6px rgb(157 212 196 / 35%);}    
+    .brand h1{font-size:16px; font-weight:700; margin:0; letter-spacing:.2px}
+
+    .controls{display:flex; gap:8px; align-items:center}
+    .btn{border:1px solid var(--border); background:#fff; color:var(--slate); padding:8px 12px; border-radius:10px; cursor:pointer; font-weight:600; transition:transform .08s ease, box-shadow .2s ease}
+    .btn:hover{transform:translateY(-1px); box-shadow:0 6px 14px rgba(0,0,0,.07)}    
+    .btn.primary{background:var(--sage); color:white; border-color:transparent}
+
+    /* NEW NAV ITEM FOR APPENDIX */
+    .btn.appendix{background:#fff; border:1px solid var(--sage); color:var(--sage-600);}
+
+    .progress{height:4px; background:var(--ivory)}
+    .bar{height:100%; width:0%; background:linear-gradient(90deg,var(--sage),var(--accent)); transition:width .35s ease}
+
+    /* Slides */
+    .slides{height:100%; position:relative; min-height:1024px}
+    .slide{position:absolute; inset:0; padding:6vh 9vw; overflow:auto; display:none}
+    .slide.active{display:block; animation:fade .35s ease}
+    @keyframes fade{from{opacity:0; transform:translateY(6px)} to{opacity:1; transform:translateY(0)}}
+
+    /* Appendix (NON-SLIDE static content) */
+    #appendixPanel{display:none; position:absolute; inset:0; overflow:auto; padding:40px; background:#fff; z-index:50}
+
+    h2{font-size:48px; margin:6px 0 18px}
+    h3{font-size:28px; margin:12px 0}
+    p{font-size:18px}
+    .lead{font-size:22px; font-weight:500; color:#111}
+    .grid{display:grid; gap:18px}
+    .grid.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .grid.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    ul{padding:0; margin:12px 0; list-style:none; display:grid; gap:8px}
+    li{padding:10px 12px; border:1px solid var(--border); border-radius:12px; background:#fff}
+    .card{background:#fff; border:1px solid var(--border); border-radius:18px; padding:18px; box-shadow:0 8px 24px rgba(17,20,24,.04)}    
+
+    .tag{display:inline-flex; align-items:center; gap:8px; text-transform:uppercase; padding:6px 10px; background:#fff; border-radius:999px; border:1px solid var(--border); font-weight:700}
+    .pip{width:10px; height:10px; background:var(--sage); border-radius:50%}
+
+    footer{display:flex; justify-content:space-between; align-items:center; padding:10px 20px; border-top:1px solid var(--border); background:#fff}
+
+  </style>
+</head>
+<body>
+  <div class="deck">
+    <header>
+      <div class="brand"><span class="dot"></span><h1>Sparkle 3D Printing Trial Lesson</h1></div>
+      <div class="controls">
+        <button class="btn ghost" id="prev">← Prev</button>
+        <button class="btn primary" id="next">Next →</button>
+        <button class="btn appendix" id="openAppendix">Appendix</button>
+      </div>
+    </header>
+
+    <div class="progress"><div class="bar" id="bar"></div></div>
+
+    <main class="slides" id="slides">
+
+      <!-- SLIDE 1 — WELCOME -->
+      <section class="slide active" data-title="Welcome">
+        <span class="tag"><span class="pip"></span> Welcome</span>
+        <h2>Make Ideas Tangible<br><span style="color:var(--sage-600)">Sparkle 3D Printing Trial Lesson</span></h2>
+        <p class="lead">2 hours • Hands-on • Beginner-friendly</p>
+        <div class="grid cols-3" style="margin-top:20px">
+          <div class="card">
+            <h3>What we'll do</h3>
+            <ul>
+              <li>Design using TinkerCAD</li>
+              <li>Slice with Bambu Studio</li>
+              <li>Demo Print using BambuLab A1</li>
+            </ul>
+          </div>
+          <div class="card"><img src="./Bambu 3D Printing Cover.jpeg" style="width:100%"></div>
+          <div class="card">
+            <h3>House Rules</h3>
+            <ul>
+              <li>Safety first: 3D Printers are not toys</li>
+              <li>Be curious — Ask questions</li>
+              <li>Iterate fast — Do first, optimise later</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 2 — LEARNING OBJECTIVES -->
+      <section class="slide" data-title="Learning Objectives">
+        <span class="tag"><span class="pip"></span> Objectives</span>
+        <h2>Learning Objectives</h2>
+        <div class="grid cols-2">
+          <div class="card">
+            <h3>By the end, learners can…</h3>
+            <ul>
+              <li>Understand 3D printing process end-to-end</li>
+              <li>Understand basic concepts of CAD</li>
+              <li>Perform basic operations in TinkerCAD</li>
+            </ul>
+          </div>
+          <div class="card"><img src="./Bambu Lab P1P 3D Printing.jpg" style="width:100%"></div>
+        </div>
+      </section>
+
+      <!-- SLIDE 3 — END TO END WORKFLOW -->
+      <section class="slide" data-title="Workflow">
+        <span class="tag"><span class="pip"></span> Process</span>
+        <h2>End-to-End Workflow of 3D Printing</h2>
+        <div class="grid cols-4">
+          <div class="card"><h3>1) 3D Design</h3><p>CAD (exact) or Sculpt (artistic)</p></div>
+          <div class="card"><h3>2) Slicing</h3><p>Layer height, infill, supports</p></div>
+          <div class="card"><h3>3) Printing</h3><p>Let the 3D printer do the magic</p></div>
+          <div class="card"><h3>4) Post Processing</h3><p>Support removal, sanding, cure/paint</p></div>
+        </div>
+      </section>
+
+      <!-- SLIDE 4 — FIRST STOP: TINKERCAD -->
+      <section class="slide" data-title="TinkerCAD">
+        <span class="tag"><span class="pip"></span> First Stop</span>
+        <h2>TinkerCAD — Your First Design</h2>
+        <div class="card"><h3>Task: Design your own name tag</h3></div>
+        <div class="grid cols-3" style="margin-top:20px">
+          <div class="card"><ul><li>Basic Shapes</li><li>Translation</li><li>Scale</li></ul></div>
+          <div class="card"><ul><li>Rotation</li><li>Group / Ungroup</li><li>Hole</li></ul></div>
+          <div class="card"><ul><li>Text Tool</li><li>Export STL</li></ul></div>
+        </div>
+      </section>
+
+      <!-- SLIDE 5 — SECOND STOP → EARRING TASK -->
+      <section class="slide" data-title="Earrings">
+        <span class="tag"><span class="pip"></span> Second Stop</span>
+        <h2>Design Earrings in TinkerCAD</h2>
+        <div class="grid cols-2">
+          <div class="card">
+            <h3>Steps</h3>
+            <ul>
+              <li>Orthographic vs Perspective view</li>
+              <li>Sketching & Drawing</li>
+            </ul>
+          </div>
+          <div class="card"><img src="./Nametag Tinkercad.png" style="width:100%"></div>
+        </div>
+      </section>
+
+      <!-- SLIDE 6 — SLICING AND DEMO -->
+      <section class="slide" data-title="Slicing Demo">
+        <span class="tag"><span class="pip"></span> Demo</span>
+        <h2>Slicing + Demo Print</h2>
+        <div class="grid cols-2">
+          <div class="card"><ul>
+            <li>Use Bambu Studio</li>
+            <li>Send to BambuLab A1</li>
+          </ul></div>
+          <div class="card"><img src="./Bambu Studios UI from Thomas Patterson.avif" style="width:100%"></div>
+        </div>
+      </section>
+
+      <!-- SLIDE 7 — 3D PRINTING LIMITATION -->
+      <section class="slide" data-title="Limitations">
+        <span class="tag"><span class="pip"></span> Limits</span>
+        <h2>3D Printing Limitations (FDM)</h2>
+        <div class="grid cols-2">
+          <div class="card"><ul>
+            <li>Must use thermoplastic</li>
+            <li>Visible layer lines</li>
+            <li>Cannot oppose gravity</li>
+            <li>Thermal expansion</li>
+          </ul></div>
+          <div class="card"><img src="./3D Printing Layer.jpg" style="width:100%"></div>
+        </div>
+      </section>
+
+      <!-- SLIDE 8 — POSSIBILITY -->
+      <section class="slide" data-title="Possibility">
+        <span class="tag"><span class="pip"></span> Inspire</span>
+        <h2>Possibility of 3D Printing — Infinite</h2>
+        <div class="grid cols-3">
+          <div class="card">
+            <h3>Festival</h3>
+            <ul><li>Chinese New Year</li><li>Easter Eggs</li></ul>
+          </div>
+          <div class="card">
+            <h3>Home Enhancement</h3>
+            <ul><li>Anime Figures</li><li>Hooks</li><li>Cable Management</li><li>Storage</li></ul>
+          </div>
+          <div class="card">
+            <h3>Fixing</h3>
+            <ul><li>Car parts</li><li>Home repair parts</li><li>Tools</li></ul>
+          </div>
+          <div class="card">
+            <h3>Toys</h3>
+            <ul><li>Toy Guns</li><li>Board Games</li></ul>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- APPENDIX (OLD SLIDES) -->
+    <div id="appendixPanel">
+      <h2>Appendix — Additional Reference</h2>
+
+      <h3>Printer Types (FDM vs SLA)</h3>
+      <img src="./3D Printing Layer.jpg" style="width:50%">
+
+      <h3>Applications: Medical, Aerospace, Jewellery</h3>
+      <img src="./Pymol Search Result.png" style="width:60%">
+
+      <h3>TinkerCAD Basics — Navigation</h3>
+      <img src="./TinkerCad Original.png" style="width:60%">
+
+      <h3>SculptGL Overview</h3>
+      <img src="./Sculpt 3D.jpg" style="width:60%">
+
+      <p class="muted" style="margin-top:50px">This appendix contains moved slides not part of core flow.</p>
+      <button id="closeAppendix" class="btn" style="margin-top:20px">Close Appendix</button>
+    </div>
+
+    <footer>
+      <div>Use ← → keys • Click slide to advance</div>
+      <div id="counter" class="muted">Slide 1</div>
+    </footer>
+  </div>
+
+<script>
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  let idx = 0;
+
+  function show(i){
+    idx = Math.max(0, Math.min(slides.length-1, i));
+    slides.forEach((s, n)=> s.classList.toggle('active', n===idx));
+    const pct = ((idx+1)/slides.length)*100;
+    $('#bar').css('width', pct+'%');
+    $('#counter').text(`Slide ${idx+1}`);
+  }
+
+  function next(){ show(idx+1) }
+  function prev(){ show(idx-1) }
+
+  $('#next').on('click', next);
+  $('#prev').on('click', prev);
+  $(document).on('keydown', e=>{ if(e.key==='ArrowRight') next(); if(e.key==='ArrowLeft') prev(); });
+  $('.slides').on('click', e=>{ if($(e.target).closest('button,a').length===0) next(); });
+
+  // APPENDIX LOGIC
+  $('#openAppendix').on('click', ()=>{
+    $('#appendixPanel').fadeIn(200);
+  });
+  $('#closeAppendix').on('click', ()=>{
+    $('#appendixPanel').fadeOut(200);
+  });
+
+  show(0);
+</script>
+  <script src="../protectionScript/protect.js"></script>
+</body>
+</html>
