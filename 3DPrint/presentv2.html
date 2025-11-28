@@ -4,7 +4,7 @@
      All old slides that you DID NOT include in the new flow are moved to a NEW "Appendix" panel.
      Appendix is not part of slide navigation — it appears only when clicking the new NAVBAR button "Appendix".
 -->
-<html lang="en">
+<html lang="en" style="font-size: 24px;">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -33,7 +33,7 @@
     header{display:flex; align-items:center; justify-content:space-between; padding:10px 20px; border-bottom:1px solid var(--border); backdrop-filter:saturate(140%) blur(8px); background:rgba(255,255,255,.7);}    
     .brand{display:flex; gap:10px; align-items:center}
     .dot{width:14px; height:14px; border-radius:50%; background:var(--sage); box-shadow:0 0 0 6px rgb(157 212 196 / 35%);}    
-    .brand h1{font-size:16px; font-weight:700; margin:0; letter-spacing:.2px}
+    .brand h1{font-size:1rem; font-weight:700; margin:0; letter-spacing:.2px}
 
     .controls{display:flex; gap:8px; align-items:center}
     .btn{border:1px solid var(--border); background:#fff; color:var(--slate); padding:8px 12px; border-radius:10px; cursor:pointer; font-weight:600; transition:transform .08s ease, box-shadow .2s ease}
@@ -55,14 +55,15 @@
     /* Appendix (NON-SLIDE static content) */
     #appendixPanel{display:none; position:absolute; inset:0; overflow:auto; padding:40px; background:#fff; z-index:50}
 
-    h2{font-size:48px; margin:6px 0 18px}
-    h3{font-size:28px; margin:12px 0}
-    p{font-size:18px}
-    .lead{font-size:22px; font-weight:500; color:#111}
+    h2{font-size:3rem; margin:6px 0 18px}
+    h3{font-size:1.75rem; margin:12px 0}
+    p{font-size:1.125rem}
+    .lead{font-size:1.375rem; font-weight:500; color:#111}
     .grid{display:grid; gap:18px}
     .grid.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
     .grid.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
     ul{padding:0; margin:12px 0; list-style:none; display:grid; gap:8px}
+    ol{ display:grid; gap:8px}
     li{padding:10px 12px; border:1px solid var(--border); border-radius:12px; background:#fff}
     .card{background:#fff; border:1px solid var(--border); border-radius:18px; padding:18px; box-shadow:0 8px 24px rgba(17,20,24,.04)}    
 
@@ -96,17 +97,17 @@
         <div class="grid cols-3" style="margin-top:20px">
           <div class="card">
             <h3>What we'll do</h3>
-            <ul>
+            <ol>
               <li>Design using TinkerCAD</li>
               <li>Slice with Bambu Studio</li>
-              <li>Demo Print using BambuLab A1</li>
-            </ul>
+              <li>Demo Print using Bambolab A1</li>
+            </ol>
           </div>
           <div class="card"><img src="./Bambu 3D Printing Cover.jpeg" style="width:100%"></div>
           <div class="card">
             <h3>House Rules</h3>
             <ul>
-              <li>Safety first: 3D Printers are not toys</li>
+              <li>Safety first — 3D Printers are not toys</li>
               <li>Be curious — Ask questions</li>
               <li>Iterate fast — Do first, optimise later</li>
             </ul>
@@ -122,9 +123,9 @@
           <div class="card">
             <h3>By the end, learners can…</h3>
             <ul>
-              <li>Understand 3D printing process end-to-end</li>
-              <li>Understand basic concepts of CAD</li>
-              <li>Perform basic operations in TinkerCAD</li>
+              <li><div><img src="./v2/page2logo/1.svg"></div>Understand 3D printing process end-to-end </li>
+              <li><div><img src="./v2/page2logo/2.svg"></div>Understand basic concepts of CAD</li>
+              <li><div><img src="./v2/page2logo/3.svg"></div>Perform basic operations in TinkerCAD</li>
             </ul>
           </div>
           <div class="card"><img src="./Bambu Lab P1P 3D Printing.jpg" style="width:100%"></div>
@@ -135,11 +136,11 @@
       <section class="slide" data-title="Workflow">
         <span class="tag"><span class="pip"></span> Process</span>
         <h2>End-to-End Workflow of 3D Printing</h2>
-        <div class="grid cols-4">
-          <div class="card"><h3>1) 3D Design</h3><p>CAD (exact) or Sculpt (artistic)</p></div>
-          <div class="card"><h3>2) Slicing</h3><p>Layer height, infill, supports</p></div>
-          <div class="card"><h3>3) Printing</h3><p>Let the 3D printer do the magic</p></div>
-          <div class="card"><h3>4) Post Processing</h3><p>Support removal, sanding, cure/paint</p></div>
+        <div class="grid cols-2">
+          <div class="card"><h3>1) 3D Design</h3><p>CAD (exact) or Sculpt (artistic)</p><div style="max-width: 50%;"><img style="max-width: 50%;" src="./v2/page3gif/CAD 3D Design.gif"></div></div>
+          <div class="card"><h3>2) Slicing</h3><p>Layer height, infill, supports</p><div style="max-width: 50%;"><img style="max-width: 50%;" src="./v2/page3gif/3D Printing Slicing GIF.gif"></div></div>
+          <div class="card"><h3>3) Printing</h3><p>Let the 3D printer do the magic</p><div style="max-width: 50%;"><img style="max-width: 50%;" src="./v2/page3gif/3D Printing GIF.gif"></div></div>
+          <div class="card"><h3>4) Post Processing</h3><p>Support removal, sanding, cure/paint</p><div style="max-width: 50%;"><img style="max-width: 50%;" src="./v2/page3gif/3D Printing Post Processing.gif"></div></div>
         </div>
       </section>
 
@@ -147,27 +148,30 @@
       <section class="slide" data-title="TinkerCAD">
         <span class="tag"><span class="pip"></span> First Stop</span>
         <h2>TinkerCAD — Your First Design</h2>
-        <div class="card"><h3>Task: Design your own name tag</h3></div>
-        <div class="grid cols-3" style="margin-top:20px">
-          <div class="card"><ul><li>Basic Shapes</li><li>Translation</li><li>Scale</li></ul></div>
-          <div class="card"><ul><li>Rotation</li><li>Group / Ungroup</li><li>Hole</li></ul></div>
-          <div class="card"><ul><li>Text Tool</li><li>Export STL</li></ul></div>
+        <div class="card" style="background-color: #6DAF9C; color: white"><h3>Task: Design your own name tag</h3></div>
+        <div class="grid cols-2">
+          <div class="grid cols-1" style="margin-top:20px">
+            <div class="card"><ul><li>Basic Shapes</li><li>Translation</li><li>Scale</li><li>Rotation</li><li>Group / Ungroup</li><li>Hole</li><li>Text Tool</li><li>Export STL</li></ul></div>
+          </div>  
+           <div class="card "style="margin-top:20px" ><img src="./Nametag Tinkercad.png" style="width:100%"></div>
         </div>
+       
       </section>
 
       <!-- SLIDE 5 — SECOND STOP → EARRING TASK -->
       <section class="slide" data-title="Earrings">
         <span class="tag"><span class="pip"></span> Second Stop</span>
         <h2>Design Earrings in TinkerCAD</h2>
-        <div class="grid cols-2">
+        <div class="card" style="background-color: #6DAF9C; color: white"><h3>Task: Design your own Earring</h3></div>
+        <div class="grid cols-2" style="margin-top:20px">
           <div class="card">
             <h3>Steps</h3>
             <ul>
-              <li>Orthographic vs Perspective view</li>
+              <li>Orthographic vs Perspective view <div><img src="./v2/page5gif/Tinkercad View Comparison GIF.gif" style="width:30%"></div></li>
               <li>Sketching & Drawing</li>
             </ul>
           </div>
-          <div class="card"><img src="./Nametag Tinkercad.png" style="width:100%"></div>
+          <div class="card"><img src="./v2/3D Print Earring Eyedrop.jpg" style="width:100%"></div>
         </div>
       </section>
 
@@ -207,18 +211,22 @@
           <div class="card">
             <h3>Festival</h3>
             <ul><li>Chinese New Year</li><li>Easter Eggs</li></ul>
+            <img src="./v2/lastpagepic/festival.png" style="width:60%; margin-left:auto; margin-right:auto">
           </div>
           <div class="card">
             <h3>Home Enhancement</h3>
             <ul><li>Anime Figures</li><li>Hooks</li><li>Cable Management</li><li>Storage</li></ul>
+            <img src="./v2/lastpagepic/fix.png" style="width:70%; margin-left:auto; margin-right:auto">
           </div>
           <div class="card">
             <h3>Fixing</h3>
             <ul><li>Car parts</li><li>Home repair parts</li><li>Tools</li></ul>
+            <img src="./v2/lastpagepic/tool.png" style="width:70%; margin-left:auto; margin-right:auto">
           </div>
           <div class="card">
             <h3>Toys</h3>
             <ul><li>Toy Guns</li><li>Board Games</li></ul>
+            <img src="./v2/lastpagepic/keyboard.png" style="width:70%; margin-left:auto; margin-right:auto">
           </div>
         </div>
       </section>
@@ -281,6 +289,6 @@
 
   show(0);
 </script>
-  <script src="../protectionScript/protect.js"></script>
+  <!-- <script src="../protectionScript/protect.js"></script> -->
 </body>
 </html>
